@@ -1,0 +1,34 @@
+
+version: '3'
+
+services:
+  nodeapp:
+   image: aagam29/nodeapp_balancerdemo
+   ports:
+     - 5000:5000
+   deploy:
+     replicas: 15
+     restart_policy:
+       max_attempts: 3
+       condition: on-failure       
+     update_config:
+       parallelism: 3
+       delay: 10s
+   networks: 
+    - balance 
+  
+  proxy:
+    image: aagam29/nginx_balancerdemo
+    ports:
+      - 80:80
+    depends_on:
+      - nodeapp
+    deploy:
+      placement:
+        constraints: [node.role == manager]
+    networks: 
+      - balance
+
+networks:
+  balance:
+    driver: overlay

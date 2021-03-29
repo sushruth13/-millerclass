@@ -1,0 +1,29 @@
+version: '3.5'
+  
+services:
+  ann:
+   image: indrajeet3333/ann:latest
+   ports:
+     - 5000:5000
+   deploy:
+     mode: replicated
+     replicas: 20
+     placement:
+      constraints: [node.role == worker]
+   networks:
+    - balance
+
+  proxy:
+    image: sushruth13/ann:latest
+    ports:
+      - 80:80
+    depends_on:
+      - ann
+    deploy:
+      placement:
+        constraints: [node.role==manager]
+    networks:
+      - balance
+networks:
+     balance:
+       driver: overlay
