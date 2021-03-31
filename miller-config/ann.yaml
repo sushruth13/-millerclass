@@ -14,7 +14,7 @@ services:
     - balance
 
   proxy:
-    image: sushruth13/ann:latest
+    image: sushruth13/miller-proxy:latest
     ports:
       - 80:80
     depends_on:
