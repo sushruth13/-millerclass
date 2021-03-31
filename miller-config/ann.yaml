@@ -26,4 +26,3 @@ services:
     - art-net
 networks:
   art-net:
-    driver: swarm
