@@ -10,7 +10,8 @@ services:
      replicas: 20
      placement:
      constraints: [node.role == worker]
-    mode: host
+    mode: 
+      - host
     networks: 
     - art-net
 
@@ -23,7 +24,8 @@ services:
     deploy:
       placement:
         constraints: [node.role==manager]
-    mode: host
+    mode: 
+      - host
     networks: 
     - art-net
 networks:
