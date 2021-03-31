@@ -23,4 +23,4 @@ services:
         constraints: [node.role==manager]
     networks: art-net
 network:
-  art-net:
+  [ art-net ]
