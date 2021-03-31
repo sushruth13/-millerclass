@@ -10,8 +10,6 @@ services:
      replicas: 20
      placement:
       constraints: [node.role == worker]
-   networks:
-    - ingress
 
   proxy:
     image: sushruth13/miller-proxy:latest
@@ -22,8 +20,3 @@ services:
     deploy:
       placement:
         constraints: [node.role==manager]
-    networks:
-      - ingress
-networks:
-     balance:
-       driver: ingress
