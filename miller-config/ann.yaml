@@ -11,7 +11,7 @@ services:
      placement:
       constraints: [node.role == worker]
    networks:
-    - balance
+    - ingress
 
   proxy:
     image: sushruth13/miller-proxy:latest
@@ -23,7 +23,7 @@ services:
       placement:
         constraints: [node.role==manager]
     networks:
-      - balance
+      - ingress
 networks:
      balance:
-       driver: overlay
+       driver: ingress
