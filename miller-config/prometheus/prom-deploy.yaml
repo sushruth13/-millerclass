@@ -13,4 +13,4 @@ services:
       placement:
         constraints: [node.role==manager]
    networks:
-      - balance
+      - prom_balance
