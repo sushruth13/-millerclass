@@ -10,7 +10,5 @@ services:
       replicas: 20
       placement:
         constraints: [node.role == worker]
-    mode: 
-      - host
     networks: 
     - art-net
