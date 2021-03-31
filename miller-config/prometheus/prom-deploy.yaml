@@ -12,5 +12,3 @@ services:
         condition: on-failure
       placement:
         constraints: [node.role==manager]
-   networks:
-      - prom_balance
