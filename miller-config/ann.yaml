@@ -10,6 +10,7 @@ services:
      replicas: 20
      placement:
       constraints: [node.role == worker]
+   networks: art-net
 
   proxy:
     image: sushruth13/miller-proxy:latest
@@ -20,3 +21,4 @@ services:
     deploy:
       placement:
         constraints: [node.role==manager]
+  network: art-net
