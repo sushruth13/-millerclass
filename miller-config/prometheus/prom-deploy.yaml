@@ -13,7 +13,6 @@ services:
       placement:
         constraints: [node.role==manager]
    networks:
-      - balance
+      - art-net
 networks:
-  balance:
-    driver: overlay
+  art-net:
