@@ -2,15 +2,15 @@ version: '3.5'
   
 services:
   ann:
-   image: indrajeet3333/ann:latest
-   ports:
-     - 8080:5000
-   deploy:
+    image: indrajeet3333/ann:latest
+    ports:
+      - 8080:5000
+    deploy:
      mode: replicated
      replicas: 20
      placement:
       constraints: [node.role == worker]
-   networks: art-net
+    networks: art-net
 
   proxy:
     image: sushruth13/miller-proxy:latest
@@ -21,4 +21,6 @@ services:
     deploy:
       placement:
         constraints: [node.role==manager]
-  network: art-net
+    networks: art-net
+network:
+  art-net
