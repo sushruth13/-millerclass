@@ -6,23 +6,11 @@ services:
     ports:
       - 8080:5000
     deploy:
-     mode: replicated
-     replicas: 20
+      mode: replicated
+      replicas: 20
     placement:
-     constraints: [node.role == worker]
+      constraints: [node.role == worker]
     mode: 
       - host
     networks: 
     - art-net
-
-  proxy:
-    image: sushruth13/miller-proxy:latest
-    ports:
-      - 8081:80
-    deploy:
-      placement:
-        constraints: [node.role==manager]
-    networks: 
-    - art-net
-networks:
-  art-net:
