@@ -16,7 +16,7 @@ services:
   proxy:
     image: sushruth13/miller-proxy:latest
     ports:
-      - 80:80
+      - 81:80
     depends_on:
       - ann
     deploy:
