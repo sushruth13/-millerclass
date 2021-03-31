@@ -18,14 +18,10 @@ services:
   proxy:
     image: sushruth13/miller-proxy:latest
     ports:
-      - 81:80
-    depends_on:
-      - ann
+      - 8081:80
     deploy:
       placement:
         constraints: [node.role==manager]
-    mode: 
-      - host
     networks: 
     - art-net
 networks:
