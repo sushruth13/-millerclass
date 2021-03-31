@@ -24,5 +24,6 @@ services:
         constraints: [node.role==manager]
     networks: 
     - art-net
-network:
+networks:
   art-net:
+    driver: swarm
