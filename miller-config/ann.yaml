@@ -8,8 +8,8 @@ services:
     deploy:
       mode: replicated
       replicas: 20
-    placement:
-      constraints: [node.role == worker]
+      placement:
+        constraints: [node.role == worker]
     mode: 
       - host
     networks: 
