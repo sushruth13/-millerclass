@@ -1,0 +1,14 @@
+version: '3.5'
+  
+services:
+  proxy:
+    image: sushruth13/miller-proxy:latest
+    ports:
+      - 8081:80
+    deploy:
+      placement:
+        constraints: [node.role==manager]
+    networks: 
+    - art-net
+networks:
+  art-net:
