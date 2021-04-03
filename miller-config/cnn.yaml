@@ -1,0 +1,18 @@
+version: '3.5'
+  
+services:
+  ann:
+    image: indrajeet3333/cnn:latest
+    ports:
+      - 8083:6000
+    deploy:
+      mode: replicated
+      replicas: 20
+      placement:
+        constraints: [node.role == worker]
+    networks: 
+    - art-net
+
+
+networks:
+  art-net:
